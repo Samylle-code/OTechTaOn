@@ -1,0 +1,88 @@
+<meta charset="UTF-8">
+<input/>
+<button>Compare com o meu segredo</button>
+
+<script>
+// 9 - funcao para sortear numero pensado
+// 53 - guarda o valor que o progrma gera, que esta guardado por quantidade em 15, cria uma array vazia para 
+// esses numeros em 17. inicia um while para gerar numeros aleatorios baseado na funcao. começando a contar pela 19
+function sorteia() {
+
+       return Math.round(Math.random() * 10);
+
+    }
+
+    function sorteiaNumeros(quantidade) {
+
+        var segredos = [];
+
+        var numero = 1;
+// 23 chama um numero aleatorio pelo ravdom do 9; que enquanto é diferente de 0, se faz uma repetição para 
+        while(numero <= quantidade) {
+// onde contem segredos[posicao], posicao sevdo destacada pela repetição  e recebendo if, um para não repetir o que tem
+              var numeroAleatorio = sorteia();
+              var achou = false;
+//e o outro para continuar adicionanso 36, 37,38. uma vez que achou seria false 31 barra a repetição caso vire true
+              if (numeroAleatorio !== 0) {
+                     for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+                           if(segredos[posicao] == numeroAleatorio){
+                                achou = true;
+                                break;
+                           }
+
+                     }
+
+                     if (achou == false) {
+                           segredos.push(numeroAleatorio);
+                           numero++;
+                     }
+              }
+
+        }
+
+        return segredos;
+
+    }
+
+    // input é uma saida para caixa de texto.  57 verifica html em script e 58 da foco a caixa de texto
+    // a meta é saber se o valor do input 66, é igual a 53, criando o if.  55 faz aparecer array so se abrir console
+    //Porem para não aparecer antes de por o valor no input, se faz uma função para chamar  60 - 86
+    // por fim cria uma var para chamar button do html 84q1 e dar o valor da funçao, sem ser o resultado.
+
+    var segredos = sorteiaNumeros(3);
+
+    console.log(segredos);
+
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verifica() {
+
+       var achou = false;
+
+       for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+              if(input.value == segredos[posicao]) {
+
+                     alert("Você ACERTOU!");
+                     achou = true;
+                     break;
+              } 
+       }
+
+       if(achou == false) {
+
+              alert("Você ERROU!");
+       }
+
+       input.value = "";
+       input.focus();
+
+    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
+
+</script>
