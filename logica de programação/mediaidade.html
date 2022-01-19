@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<script>
+    
+
+function pulalinha() {
+    document.write ("<br>");
+    document.write ("<br>");
+}
+function mostra(frase) {
+
+    document.write (frase);
+    pulalinha(); 
+}
+
+// O que aconteceu aqui?
+// 1. meta = saber a media de idades dos familiares, para isso precisa do numero de familiares e idade deles. 
+// Isso foi visto no 22 e 27
+// 2. definiu while, sabevdo o total devezes para perguntar a idade deveria ser em prol de alguma variavel
+//essa variavel deveria aumentar conforme o total de repetição, ai definiu 23 e 29
+//3. para armazenar as idades definiu 24. que a cada vez que repetia armazenava mais uma idade com o 28
+// 4.  calculo final 32 e 33
+var totalfamiliares = parseInt(prompt("Digite total de seus familiares"));
+var numeroidades = 1;
+var totalidades = 0;
+
+while (numeroidades <= totalfamiliares){
+    var idades= parseInt(prompt("Digite a idad dos seu familiares"));
+    totalidades = totalidades + idades;
+    numeroidades++;
+    
+}
+var mediaidades = totalidades / totalfamiliares;
+mostra (mediaidades + "<br>" + "Fim");
+</script>
+
+
